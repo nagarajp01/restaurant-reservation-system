@@ -24,4 +24,16 @@ app.get("/", (req, res) => {
     });
 });
 
+
+
+//routers import
+
+import userRouter from "./routes/user.routes.js";
+
+
+app.use("/api/v1/users", userRouter);
+
+
+
+
 export { app };
