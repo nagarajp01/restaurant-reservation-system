@@ -6,6 +6,9 @@ import jwt from "jsonwebtoken";
 
 const generateAccessAndRefreshToken = async (userId) => {
     const user = await User.findById(userId);
+    if(!user){
+        throw new ApiError(404,"user not found");
+    }
 
     const accessToken = user.generateAccessToken();
     const refreshToken = user.generateRefreshToken();
@@ -71,9 +74,10 @@ const loginUser = asyncHandler(async (req, res) => {
         throw new ApiError(401, "Invalid credentials");
     }
 
-    const accessToken = user.generateAccessToken();
+    //const accessToken = user.generateAccessToken();
+    const {accessToken, refreshToken}=await generateAccessAndRefreshToken(user._id)
 
-    const loggedInUser = await User.findById(user._id).select("-password");
+    const loggedInUser = await User.findById(user._id).select("-password -refreshToken");
 
     const options = {
         httpOnly: true,
@@ -83,12 +87,14 @@ const loginUser = asyncHandler(async (req, res) => {
     return res
         .status(200)
         .cookie("accessToken", accessToken, options)
+        .cookie("refreshToken",refreshToken,options)
         .json(
             new ApiResponse(
                 200,
                 {
                     user: loggedInUser,
-                    accessToken
+                    accessToken,
+                    refreshToken
                 },
                 "Login Successful"
             )
@@ -96,6 +102,51 @@ const loginUser = asyncHandler(async (req, res) => {
 
 });
 
+const getCurrentUser = asyncHandler(async (req, res) => {
+
+    return res.status(200).json(
+        new ApiResponse(
+            200,
+            req.user,
+            "Current user fetched successfully"
+        )
+    );
+
+});
+
+const logoutUser = asyncHandler(async (req, res) => {
+
+    await User.findByIdAndUpdate(
+        req.user._id,
+        {
+            $unset: {
+                refreshToken: 1
+            }
+        },
+        {
+            new: true
+        }
+    );
+
+    const options = {
+        httpOnly: true,
+        secure: false
+    };
+
+    return res
+        .status(200)
+        .clearCookie("accessToken", options)
+        .clearCookie("refreshToken",options)
+        .json(
+            new ApiResponse(
+                200,
+                {},
+                "Logout successful"
+            )
+        );
+});
+
 export {registerUser,
-    loginUser
+    loginUser,
+    getCurrentUser
 }
