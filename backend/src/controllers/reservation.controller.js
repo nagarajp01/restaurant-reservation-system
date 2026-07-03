@@ -3,6 +3,7 @@ import { ApiError } from "../utils/ApiError.js";
 import { ApiResponse } from "../utils/ApiResponse.js";
 import { Reservation } from "../models/reservation.model.js";
 import { Table } from "../models/table.model.js";
+import { ALLOWED_TIME_SLOTS } from "../constants.js";
 
 const createReservation = asyncHandler(async (req, res) => {
 
@@ -20,6 +21,10 @@ const createReservation = asyncHandler(async (req, res) => {
         !numberOfGuests
     ) {
         throw new ApiError(400, "All fields are required");
+    }
+    
+    if(!ALLOWED_TIME_SLOTS.includes(reservationTime)){
+        throw new ApiError(400,"invalid reservation time slots")
     }
 
     const table = await Table.findById(tableId);
@@ -149,6 +154,10 @@ const updateReservation = asyncHandler(async (req, res) => {
         tableId
     } = req.body;
 
+    if(reservationTime && !ALLOWED_TIME_SLOTS.includes(reservationTime)){
+        throw new ApiError(400,"invalid reservation time slot")
+    }
+
     if (
         !reservationDate &&
         !reservationTime &&
@@ -256,11 +265,44 @@ const deleteReservation = asyncHandler(async (req, res) => {
         )
     );
 });
+const getReservationsByDate = asyncHandler(async (req, res) => {
+
+    const { date } = req.query;
+
+    if (!date) {
+        throw new ApiError(400, "Date is required");
+    }
+
+    const selectedDate = new Date(date);
+    selectedDate.setUTCHours(0, 0, 0, 0);
+
+    const nextDay = new Date(selectedDate);
+    nextDay.setUTCDate(nextDay.getUTCDate() + 1);
+
+    const reservations = await Reservation.find({
+        reservationDate: {
+            $gte: selectedDate,
+            $lt: nextDay
+        }
+    })
+    .populate("customer", "fullName email")
+    .populate("table", "tableNumber capacity");
+
+    return res.status(200).json(
+        new ApiResponse(
+            200,
+            reservations,
+            "Reservations fetched successfully"
+        )
+    );
+
+});
 export {
     createReservation,
     getMyReservations,
     cancelReservation,
     getAllReservations,
     updateReservation,
-    deleteReservation
+    deleteReservation,
+    getReservationsByDate
 };
