@@ -35,7 +35,47 @@ const getAllTables = asyncHandler(async (req, res) => {
     );
 });
 
+const updateTable = asyncHandler(async (req, res) => {
+    const { tableId } = req.params;
+    const { tableNumber, capacity, isAvailable } = req.body;
+
+    const table = await Table.findById(tableId);
+
+    if (!table) {
+        throw new ApiError(404, "Table not found");
+    }
+
+    if (tableNumber !== undefined) table.tableNumber = tableNumber;
+    if (capacity !== undefined) table.capacity = capacity;
+    if (isAvailable !== undefined) table.isAvailable = isAvailable;
+
+    await table.save();
+
+    return res.status(200).json(
+        new ApiResponse(200, table, "Table updated successfully")
+    );
+});
+
+const deleteTable = asyncHandler(async (req, res) => {
+
+    const { tableId } = req.params;
+
+    const table = await Table.findById(tableId);
+
+    if (!table) {
+        throw new ApiError(404, "Table not found");
+    }
+
+    await Table.findByIdAndDelete(tableId);
+
+    return res.status(200).json(
+        new ApiResponse(200, {}, "Table deleted successfully")
+    );
+});
+
 export {
     createTable,
-    getAllTables
+    getAllTables,
+    updateTable,
+    deleteTable
 };

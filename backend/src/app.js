@@ -30,10 +30,11 @@ app.get("/", (req, res) => {
 
 import userRouter from "./routes/user.routes.js";
 import tableRouter from "./routes/table.routes.js";
-
+import reservationRouter from "./routes/reservation.routes.js";
 
 app.use("/api/v1/users", userRouter);
 app.use("/api/v1/tables", tableRouter);
+app.use("/api/v1/reservations", reservationRouter);
 
 
 
