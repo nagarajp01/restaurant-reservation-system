@@ -56,6 +56,7 @@ userSchema.methods.generateAccessToken = function () {
     const payLoad=
         {
       _id: this._id,
+      fullName:this.fullName,
       email: this.email,
       role: this.role,
     }
