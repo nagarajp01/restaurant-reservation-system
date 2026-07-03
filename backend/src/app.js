@@ -29,9 +29,11 @@ app.get("/", (req, res) => {
 //routers import
 
 import userRouter from "./routes/user.routes.js";
+import tableRouter from "./routes/table.routes.js";
 
 
 app.use("/api/v1/users", userRouter);
+app.use("/api/v1/tables", tableRouter);
 
 
 
