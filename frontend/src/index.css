@@ -7,3 +7,41 @@
 body {
   font-family: Arial, sans-serif;
 }
+
+.navbar {
+
+  height: 60px;
+  padding: 0 40px;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  background: #222;
+  color: white;
+}
+
+
+.navbar div {
+
+  display: flex;
+  gap: 20px;
+  align-items: center;
+
+}
+
+
+.navbar a {
+
+  color: white;
+  text-decoration: none;
+
+}
+
+
+.navbar button {
+
+  padding: 8px 15px;
+  cursor: pointer;
+
+}
