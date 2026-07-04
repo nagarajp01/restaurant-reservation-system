@@ -2,7 +2,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Home from "./pages/Home";
 import Register from "./pages/Register";
 import Login from "./pages/Login";
-import Tables from "./pages/Tables";
+import ManageTables from "./pages/ManageTables";
 import MyReservations from "./pages/MyReservations";
 import AdminDashboard from "./pages/AdminDashboard";
 import Navbar from "./components/Navbar";
@@ -37,9 +37,9 @@ function App() {
 
 
         <Route 
-          path="/tables" 
-          element={<Tables />} 
-        />
+        path="/manage-tables"
+        element={<ManageTables />}
+      />
 
 
         <Route 

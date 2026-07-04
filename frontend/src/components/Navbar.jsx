@@ -46,8 +46,8 @@ function Navbar() {
                 {
                     status && (
                         <>
-                            <Link to="/tables">
-                                Tables
+                            <Link to="/manage-tables">
+                                    Manage Tables
                             </Link>
 
 
