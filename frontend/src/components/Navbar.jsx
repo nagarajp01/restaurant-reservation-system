@@ -19,6 +19,7 @@ function Navbar() {
         try {
 
             await api.post("/users/logout");
+            localStorage.removeItem("user");
 
             dispatch(logout());
 

@@ -7,6 +7,8 @@ import MyReservations from "./pages/MyReservations";
 import AdminDashboard from "./pages/AdminDashboard";
 import Navbar from "./components/Navbar";
 import CreateReservation from "./pages/CreateReservation";
+import ProtectedRoute from "./components/ProtectedRoute";
+import AdminRoute from "./components/AdminRoute";
 
 
 function App() {
@@ -38,28 +40,41 @@ function App() {
 
         <Route 
         path="/manage-tables"
-        element={<ManageTables />}
+        element={
+          <AdminRoute>
+            <ManageTables />
+          </AdminRoute>
+        }
       />
 
 
         <Route 
           path="/my-reservations" 
-          element={<MyReservations />} 
+          element={
+            <ProtectedRoute>
+              <MyReservations />
+            </ProtectedRoute>
+          } 
         />
 
 
         <Route 
           path="/admin" 
-          element={<AdminDashboard />} 
+          element={
+            <AdminRoute>
+              <AdminDashboard />
+            </AdminRoute>
+          } 
         />
 
         <Route 
           path="/reserve" 
-          element={<CreateReservation />} 
-        />
-        <Route
-        path="/my-reservations"
-         element={<MyReservations />}
+          element={
+            <ProtectedRoute>
+              <CreateReservation />
+            </ProtectedRoute>
+          
+        } 
         />
 
 

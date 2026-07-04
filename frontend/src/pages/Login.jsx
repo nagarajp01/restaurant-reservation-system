@@ -40,6 +40,11 @@ function Login() {
                 formData
             );
 
+            localStorage.setItem(
+                        "user",
+                JSON.stringify(response.data.data.user)
+            );
+
 
             console.log(response.data);
 
