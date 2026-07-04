@@ -54,9 +54,14 @@ function App() {
         />
 
         <Route 
- path="/reserve" 
- element={<CreateReservation />} 
-/>
+          path="/reserve" 
+          element={<CreateReservation />} 
+        />
+        <Route
+        path="/my-reservations"
+         element={<MyReservations />}
+        />
+
 
       </Routes>
 
