@@ -45,15 +45,13 @@ function Navbar() {
 
 
                 {
-                    status && (
+                    status && user?.role==="customer" && (
                         <>
-                            <Link to="/manage-tables">
-                                    Manage Tables
-                            </Link>
-
-
+                        <Link to="/reserve">
+                                Book-Table
+                        </Link>
                             <Link to="/my-reservations">
-                                My Reservations
+                                My-Bookings
                             </Link>
                         </>
                     )
@@ -62,9 +60,20 @@ function Navbar() {
 
                 {
                     user?.role === "admin" && (
+
+                       <>
                         <Link to="/admin">
-                            Admin
+                            Manage-Reservations
                         </Link>
+                       
+                       <Link to="/manage-tables">
+                                    Manage-Tables
+                            </Link>
+                       
+                       </> 
+                       
+
+                        
                     )
                 }
 

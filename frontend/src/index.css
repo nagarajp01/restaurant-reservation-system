@@ -1,86 +1,4 @@
-/* * {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
-body {
-  font-family: Arial, sans-serif;
-}
-
-.navbar {
-
-  height: 60px;
-  padding: 0 40px;
-
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-
-  background: #222;
-  color: white;
-}
-
-
-.navbar div {
-
-  display: flex;
-  gap: 20px;
-  align-items: center;
-
-}
-
-
-.navbar a {
-
-  color: white;
-  text-decoration: none;
-
-}
-
-
-.navbar button {
-
-  padding: 8px 15px;
-  cursor: pointer;
-
-}
-
-
-.form-container {
-
-  width: 350px;
-  margin: 80px auto;
-
-}
-
-
-.form-container form {
-
-  display: flex;
-  flex-direction: column;
-  gap: 15px;
-
-}
-
-
-.form-container input {
-
-  padding: 10px;
-  font-size: 16px;
-
-}
-
-
-.form-container button {
-
-  padding: 10px;
-  cursor: pointer;
-
-}
- */
-
- * {
+* {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
@@ -105,6 +23,10 @@ nav {
 
     padding: 0 40px;
 }
+nav h2{
+  margin: 0;
+  
+}
 
 
 nav a {
@@ -114,10 +36,32 @@ nav a {
 }
 
 
-nav button {
-    padding: 8px 15px;
+/* nav button {
+    padding: 6px 12px;
+    height: 35px;
     border: none;
+    border-radius: 5px;
     cursor: pointer;
+    
+} */
+ nav button {
+    background: #ec4b5bd1;
+    color: white;
+
+    border: none;
+    border-radius: 20px;
+
+    padding: 8px 18px;
+
+    font-size: 15px;
+    font-weight: 500;
+
+    cursor: pointer;
+
+    margin-left: 15px;
+}
+nav button:hover {
+    background: #b02a37;
 }
 
 
@@ -277,4 +221,60 @@ h2 {
 
 .home button:hover {
     background-color: #7f1d1d;
+}
+
+.card-buttons {
+    display: flex;
+    gap: 15px;
+    margin-top: 15px;
+}
+
+
+.card-buttons button {
+    padding: 8px 18px;
+}
+
+.filter-box{
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    gap:15px;
+
+    margin:30px 0;
+}
+
+
+.filter-box input{
+
+    padding:10px 15px;
+
+    border:1px solid #ddd;
+    border-radius:8px;
+
+    font-size:15px;
+
+    outline:none;
+
+}
+
+
+.filter-box button{
+
+    padding:10px 20px;
+
+    background:#d9234e;
+    color:white;
+
+    border:none;
+    border-radius:8px;
+
+    cursor:pointer;
+
+}
+
+
+.filter-box button:hover{
+
+    background:#b7193d;
+
 }
