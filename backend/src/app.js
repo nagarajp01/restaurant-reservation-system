@@ -3,10 +3,14 @@ import cors from "cors";
 import cookieParser from "cookie-parser";
 import morgan from "morgan";
 
+
 const app = express();
 
+
+// console.log("CORS:",process.env.CORS_ORIGIN);
+
 app.use(cors({
-    origin: process.env.CORS_ORIGIN,
+    origin:process.env.CORS_ORIGIN,
     credentials: true
 }));
 

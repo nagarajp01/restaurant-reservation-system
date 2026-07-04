@@ -7,7 +7,7 @@
 body {
   font-family: Arial, sans-serif;
 }
-
+/* //navbar */
 .navbar {
 
   height: 60px;
@@ -42,6 +42,39 @@ body {
 .navbar button {
 
   padding: 8px 15px;
+  cursor: pointer;
+
+}
+
+/*register user form*/
+.form-container {
+
+  width: 350px;
+  margin: 80px auto;
+
+}
+
+
+.form-container form {
+
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+
+}
+
+
+.form-container input {
+
+  padding: 10px;
+  font-size: 16px;
+
+}
+
+
+.form-container button {
+
+  padding: 10px;
   cursor: pointer;
 
 }
