@@ -148,5 +148,6 @@ const logoutUser = asyncHandler(async (req, res) => {
 
 export {registerUser,
     loginUser,
-    getCurrentUser
+    getCurrentUser,
+    logoutUser
 }

@@ -6,6 +6,7 @@ import Tables from "./pages/Tables";
 import MyReservations from "./pages/MyReservations";
 import AdminDashboard from "./pages/AdminDashboard";
 import Navbar from "./components/Navbar";
+import CreateReservation from "./pages/CreateReservation";
 
 
 function App() {
@@ -51,6 +52,11 @@ function App() {
           path="/admin" 
           element={<AdminDashboard />} 
         />
+
+        <Route 
+ path="/reserve" 
+ element={<CreateReservation />} 
+/>
 
       </Routes>
 

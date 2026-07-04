@@ -1,4 +1,4 @@
-* {
+/* * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
@@ -7,7 +7,7 @@
 body {
   font-family: Arial, sans-serif;
 }
-/* //navbar */
+
 .navbar {
 
   height: 60px;
@@ -46,7 +46,7 @@ body {
 
 }
 
-/*register user form*/
+
 .form-container {
 
   width: 350px;
@@ -77,4 +77,133 @@ body {
   padding: 10px;
   cursor: pointer;
 
+}
+ */
+
+ * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+body {
+    background: #f4f6f8;
+}
+
+
+/* Navbar */
+
+nav {
+    height: 60px;
+    background: #222;
+    color: white;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    padding: 0 40px;
+}
+
+
+nav a {
+    color: white;
+    text-decoration: none;
+    margin-left: 20px;
+}
+
+
+nav button {
+    padding: 8px 15px;
+    border: none;
+    cursor: pointer;
+}
+
+
+/* Forms */
+
+form {
+    width: 400px;
+    margin: 60px auto;
+
+    background: white;
+    padding: 30px;
+
+    border-radius: 10px;
+
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+
+    box-shadow: 0 0 10px #ccc;
+}
+
+
+form input,
+form select {
+    padding: 12px;
+    border-radius: 5px;
+    border: 1px solid #aaa;
+
+    font-size: 16px;
+}
+
+
+form button {
+    padding: 12px;
+
+    background: #222;
+    color: white;
+
+    border: none;
+    border-radius: 5px;
+
+    cursor: pointer;
+}
+
+
+form button:hover {
+    background: #444;
+}
+
+
+/* Page headings */
+
+h2 {
+    text-align: center;
+    margin-top: 30px;
+}
+
+
+/* Reservation */
+
+.reservation-container {
+    padding: 20px;
+}
+
+
+.card {
+    background: white;
+
+    width: 350px;
+
+    margin: 20px;
+    padding: 20px;
+
+    border-radius: 10px;
+
+    box-shadow: 0 0 10px #ddd;
+}
+
+
+.card button {
+    margin-top: 10px;
+
+    padding: 8px 12px;
+
+    background: crimson;
+    color:white;
+
+    border:none;
 }
