@@ -12,6 +12,10 @@ function CreateReservation() {
         numberOfGuests: ""
     });
 
+//     const today = new Date().toISOString().split("T")[0];
+
+// const currentHour = new Date().getHours();
+
 
     const timeSlots = [
         "12:00",
@@ -119,11 +123,11 @@ function CreateReservation() {
 
 
 
-                <input
-                    type="date"
-                    name="reservationDate"
-                    onChange={handleChange}
-                />
+               <input
+                 type="date"
+                name="reservationDate"
+                 min={new Date().toISOString().split("T")[0]}
+                 onChange={handleChange}/>
 
 
 

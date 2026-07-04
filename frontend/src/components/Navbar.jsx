@@ -22,6 +22,7 @@ function Navbar() {
             localStorage.removeItem("user");
 
             dispatch(logout());
+            navigate("/login")
 
         } catch (error) {
 
