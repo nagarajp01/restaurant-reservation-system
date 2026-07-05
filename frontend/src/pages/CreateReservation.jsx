@@ -74,6 +74,12 @@ function CreateReservation() {
             // alert("Reservation booked successfully");
             setMessage("Reservation created successfully");
             setError("");
+            setFormData({
+    tableId: "",
+    reservationDate: "",
+    reservationTime: "",
+    numberOfGuests: ""
+});
 
 
         } catch (error) {
@@ -102,6 +108,7 @@ function CreateReservation() {
 
                 <select
                     name="tableId"
+                    value={formData.tableId}
                     onChange={handleChange}
                 >
 
@@ -130,6 +137,7 @@ function CreateReservation() {
                <input
                  type="date"
                 name="reservationDate"
+                value={formData.reservationDate}
                  min={new Date().toISOString().split("T")[0]}
                  onChange={handleChange}/>
 
@@ -137,6 +145,7 @@ function CreateReservation() {
 
                 <select
                     name="reservationTime"
+                    value={formData.reservationTime}
                     onChange={handleChange}
                 >
 
@@ -183,6 +192,7 @@ timeSlots.map((slot) => {
                     type="number"
                     name="numberOfGuests"
                     placeholder="Guests"
+                     value={formData.numberOfGuests}
                     onChange={handleChange}
                 />
 

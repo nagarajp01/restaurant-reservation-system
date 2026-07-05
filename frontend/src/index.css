@@ -393,3 +393,11 @@ h2 {
 }
 
 /*----------------*/
+.no-data {
+  text-align: center;
+  margin-top: 40px;
+  font-size: 20px;
+  font-weight: bold;
+  color: #555;
+  width: 100%;
+}

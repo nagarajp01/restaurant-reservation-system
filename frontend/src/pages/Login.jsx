@@ -48,7 +48,6 @@ const [error, setError] = useState("");
             );
 
 
-            console.log(response.data);
 
 
             dispatch(

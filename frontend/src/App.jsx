@@ -1,4 +1,8 @@
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
+import { useEffect } from "react";
+import { useDispatch } from "react-redux";
+import api from "./services/api";
+import { setUser, logout } from "./features/auth/authSlice";
 import Home from "./pages/Home";
 import Register from "./pages/Register";
 import Login from "./pages/Login";
@@ -11,7 +15,33 @@ import ProtectedRoute from "./components/ProtectedRoute";
 import AdminRoute from "./components/AdminRoute";
 
 
+
+
 function App() {
+   const dispatch = useDispatch();
+
+    useEffect(() => {
+
+    const checkUser = async () => {
+
+      try {
+
+        const response = await api.get("/users/current-user");
+
+        dispatch(setUser(response.data.data));
+
+      } catch (error) {
+
+        dispatch(logout());
+
+      }
+
+    };
+
+    checkUser();
+
+  }, []);
+
 
   return (
 
@@ -76,6 +106,7 @@ function App() {
           
         } 
         />
+        <Route path="*" element={<Navigate to="/" />} />
 
 
       </Routes>

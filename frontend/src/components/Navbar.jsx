@@ -1,6 +1,5 @@
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
-
 import api from "../services/api";
 import { logout } from "../features/auth/authSlice";
 
@@ -12,6 +11,7 @@ function Navbar() {
     );
 
     const dispatch = useDispatch();
+    const navigate=useNavigate()
 
 
     const handleLogout = async () => {

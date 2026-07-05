@@ -5,6 +5,7 @@ import api from "../services/api";
 function AdminDashboard() {
 
     const [reservations, setReservations] = useState([]);
+    const [selectedDate, setSelectedDate] = useState("");
 
     const [editId, setEditId] = useState(null);
 
@@ -43,12 +44,12 @@ function AdminDashboard() {
 
 
 
-    const fetchByDate = async (date) => {
+    const fetchByDate = async () => {
 
         try {
 
             const response = await api.get(
-                `/reservations/by-date?date=${date}`
+                `/reservations/by-date?date=${selectedDate}`
             );
 
             setReservations(response.data.data);
@@ -165,23 +166,35 @@ const updateReservation = async () => {
 
        <div className="filter-box">
 
-            <input
-                    type="date"
-                     onChange={(e) =>
-                 fetchByDate(e.target.value)
-             }/>
-
+                    <input
+                         type="date"
+                         value={selectedDate}
+                         onChange={(e) =>
+                      setSelectedDate(e.target.value) }/>
 
                 <button
-                     onClick={fetchAllReservations}>
-                     Show All
-                </button>
+                    onClick={fetchByDate}>
+                        Search
+                    </button>
 
-            </div>
+
+                 <button
+                    onClick={() => {
+                  fetchAllReservations();
+                 setSelectedDate("");}}>
+                         Show All
+                 </button>
+
+                </div>
 
 
 
         <div className="reservation-list">
+
+            { reservations.length === 0 && (
+                     <p className="no-data">
+                         No reservations found
+                        </p>)}
 
 
             {
