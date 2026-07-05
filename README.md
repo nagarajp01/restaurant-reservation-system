@@ -41,7 +41,6 @@ Note: Backend is hosted on Render free tier, so the first request may take some 
 - Cancel/Delete reservations
 - Manage restaurant tables
 
-
 ## Screenshots
 
 ### Register Page
@@ -50,23 +49,23 @@ Note: Backend is hosted on Render free tier, so the first request may take some 
 ### Login Page
 ![Login Page](./screenshots/login.jpeg)
 
-### Customer Dashboard
-![Customer Dashboard](./screenshots/customer%20ui.jpeg)
+### My Reservations
+![My Reservations](./screenshots/my%20reservation%20customer.jpeg)
 
 ### Create Reservation
 ![Create Reservation](./screenshots/create%20reservation.jpeg)
 
-### My Reservations
-![My Reservations](./screenshots/my%20reservation.jpeg)
+### Customer Dashboard
+![Customer Dashboard](./screenshots/customer%20ui.jpeg)
+
+### Manage Tables
+![Manage Tables](./screenshots/Manage%20Tables%20By%20admin.jpeg)
+
+### All Reservations
+![All Reservations](./screenshots/ALL%20Reservations%20admin.jpeg)
 
 ### Admin Dashboard
 ![Admin Dashboard](./screenshots/admin%20UI.jpeg)
-
-### All Reservations
-![All Reservations](./screenshots/ALL%20Reservation.jpeg)
-
-### Manage Tables
-![Manage Tables](./screenshots/Manage%20Tables.jpeg)
 
 ## Role Based Access
 
