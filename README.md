@@ -2,6 +2,12 @@
 
 A full-stack restaurant reservation application built using MERN stack.
 
+## Live Deployment
+- Frontend (Vercel): https://restaurant-reservation-system-navy.vercel.app/
+- Backend (Render): https://restaurant-reservation-backend-aujp.onrender.com
+
+Note: Backend is hosted on Render free tier, so the first request may take some time if the server is inactive.
+
 ## Tech Stack
 
 ### Frontend
@@ -34,6 +40,33 @@ A full-stack restaurant reservation application built using MERN stack.
 - Update reservation details
 - Cancel/Delete reservations
 - Manage restaurant tables
+
+
+## Screenshots
+
+### Register Page
+![Register Page](./screenshots/register.jpeg)
+
+### Login Page
+![Login Page](./screenshots/login.jpeg)
+
+### Customer Dashboard
+![Customer Dashboard](./screenshots/customer%20ui.jpeg)
+
+### Create Reservation
+![Create Reservation](./screenshots/create%20reservation.jpeg)
+
+### My Reservations
+![My Reservations](./screenshots/my%20reservation.jpeg)
+
+### Admin Dashboard
+![Admin Dashboard](./screenshots/admin%20UI.jpeg)
+
+### All Reservations
+![All Reservations](./screenshots/ALL%20Reservation.jpeg)
+
+### Manage Tables
+![Manage Tables](./screenshots/Manage%20Tables.jpeg)
 
 ## Role Based Access
 
@@ -103,7 +136,7 @@ The frontend displays these messages to users.
 ### Table
 - tableNumber
 - capacity
-- isAvailabe
+- isAvailable
 
 
 ### Reservation
@@ -171,7 +204,7 @@ Start React application:
 npm run dev
 
 
-### 4. Access Application
+### 4. Access Application (Local Development)
 
 Frontend:
 
@@ -180,44 +213,6 @@ http://localhost:5173
 Backend:
 
 http://localhost:8000
-
-Clone repository:
-
-git clone https://github.com/nagarajp01/restaurant-reservation-system.git
-
-Backend setup:
-
-cd backend
-
-npm install
-
-Create a .env file and add:
-
-PORT=8000
-
-MONGODB_URI=your_mongodb_connection_string
-
-CORS_ORIGIN=your_frontend_url
-
-ACCESS_TOKEN_SECRET=your_access_token_secret
-ACCESS_TOKEN_EXPIRY=your_access_token_expiry
-
-REFRESH_TOKEN_SECRET=your_refresh_token_secret
-REFRESH_TOKEN_EXPIRY=your_refresh_token_expiry
-
-Run backend:
-
-npm run dev
-
-
-Frontend setup:
-
-cd frontend
-
-npm install
-
-npm run dev
-
 
 ## Admin Access Setup
 
