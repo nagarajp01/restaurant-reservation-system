@@ -71,6 +71,12 @@ function MyReservations() {
 
 
         <div className="reservation-list">
+            {reservations.length === 0 && (
+                    <h3 className="empty">
+                    No reservations found
+                </h3>
+                    )
+                }
 
             {
                 reservations.map((reservation) => (

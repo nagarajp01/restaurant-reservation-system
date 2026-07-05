@@ -15,6 +15,8 @@ function Register() {
         password: "",
         phone: ""
     });
+    const [message, setMessage] = useState("");
+    const [error, setError] = useState("");
 
 
     const handleChange = (e) => {
@@ -40,10 +42,10 @@ function Register() {
             );
 
 
-            console.log(response.data);
 
 
-            alert("Registration successful");
+           setMessage("Registration successful");
+            setError("");
 
 
             navigate("/login");
@@ -51,10 +53,8 @@ function Register() {
 
         } catch (error) {
 
-            alert(
-                error.response?.data?.message || 
-                "Registration failed"
-            );
+            setError(error.response?.data?.message ||"Registration failed");
+            setMessage("");
 
         }
 
@@ -66,7 +66,15 @@ function Register() {
         <div className="form-container">
 
             <h2>Register</h2>
+            {message && (
+            <p className="message">
+        {message}
+             </p>)}
 
+            {error && (
+             <p className="error">
+                {error}
+             </p>)}
 
             <form onSubmit={handleSubmit}>
 

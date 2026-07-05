@@ -16,6 +16,8 @@ function Login() {
         email: "",
         password: ""
     });
+    const [message, setMessage] = useState("");
+const [error, setError] = useState("");
 
 
     const handleChange = (e) => {
@@ -54,7 +56,8 @@ function Login() {
             );
 
 
-            alert("Login successful");
+            setMessage("Registration successful");
+            setError("");
 
 
             navigate("/");
@@ -62,10 +65,8 @@ function Login() {
 
         } catch (error) {
 
-            alert(
-                error.response?.data?.message ||
-                "Login failed"
-            );
+            setError(error.response?.data?.message ||"Registration failed");
+            setMessage("");
 
         }
 
@@ -77,6 +78,9 @@ function Login() {
         <div className="form-container">
 
             <h2>Login</h2>
+            {message && (<p className="message">  {message}</p>)}
+
+            {error && (<p className="error"> {error}</p>)}
 
 
             <form onSubmit={handleSubmit}>

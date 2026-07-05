@@ -2,8 +2,9 @@ import { useEffect, useState } from "react";
 import api from "../services/api";
 
 function CreateReservation() {
-
+    const [message, setMessage] = useState("");
     const [tables, setTables] = useState([]);
+    const [error, setError] = useState("");
 
     const [formData, setFormData] = useState({
         tableId: "",
@@ -70,16 +71,18 @@ function CreateReservation() {
                 formData
             );
 
-            alert("Reservation booked successfully");
+            // alert("Reservation booked successfully");
+            setMessage("Reservation created successfully");
+            setError("");
 
 
         } catch (error) {
 
-            alert(
-                error.response?.data?.message ||
-                "Booking failed"
-            );
-
+             setError(
+        error.response?.data?.message ||
+        "Something went wrong"
+    );
+        setMessage("")
         }
 
     };
@@ -92,7 +95,8 @@ function CreateReservation() {
 
             <h2>Create Reservation</h2>
 
-
+            {message && <p className="message">{message}</p>}
+            {error && (<p className="error">{error}</p>)}
             <form onSubmit={handleSubmit}>
 
 
@@ -140,18 +144,37 @@ function CreateReservation() {
 
 
                     {
-                        timeSlots.map((slot) => (
+timeSlots.map((slot) => {
 
-                            <option
-                                key={slot}
-                                value={slot}
-                            >
-                                {slot}
-                            </option>
+    const today = new Date()
+        .toISOString()
+        .split("T")[0];
 
-                        ))
-                    }
+    const currentHour =
+        new Date().getHours();
 
+    const slotHour =
+        Number(slot.split(":")[0]);
+
+    const isDisabled =
+        formData.reservationDate === today &&
+        slotHour <= currentHour;
+
+
+    return (
+
+        <option
+            key={slot}
+            value={slot}
+            disabled={isDisabled}
+        >
+            {slot}
+        </option>
+
+    );
+
+})
+}
                 </select>
 
 
