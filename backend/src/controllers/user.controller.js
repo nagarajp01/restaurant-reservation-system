@@ -73,7 +73,7 @@ const loginUser = asyncHandler(async (req, res) => {
     const loggedInUser = await User.findById(user._id).select("-password -refreshToken");
     const options = {
         httpOnly: true,
-        secure: false,
+        secure: true,
         sameSite:"none"
     };
     console.log("COOKIE OPTIONS",options)
@@ -123,7 +123,7 @@ const logoutUser = asyncHandler(async (req, res) => {
 
     const options = {
         httpOnly: true,
-        secure: false,
+        secure: true,
         sameSite:"none"
     };
 
