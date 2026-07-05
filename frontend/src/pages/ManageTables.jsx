@@ -124,7 +124,7 @@ const deleteTable = async(id)=>{
 
             <h2>Manage Tables</h2>
 
-                     <div className="card">
+                     <div className="add-table-card">
 
                          <input
                          type="number"

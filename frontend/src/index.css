@@ -312,3 +312,84 @@ h2 {
     font-size: 20px;
     font-weight: 600;
 }
+
+/* .add-table-card{
+    width: 300px;
+    margin: 30px auto;
+    padding: 20px;
+    background: white;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.2);
+    display:flex;
+    flex-direction: column;
+
+
+} */
+
+.add-table-card {
+
+    width: 300px;
+
+    margin: 30px auto;
+
+    padding: 25px;
+
+    background-color: white;
+
+    border-radius: 12px;
+
+    box-shadow: 0 0 15px rgba(0,0,0,0.2);
+
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 15px;
+}
+
+
+.add-table-card input {
+
+    padding: 10px;
+
+    border: 1px solid #ccc;
+
+    border-radius: 5px;
+
+    outline: none;
+
+}
+
+
+.add-table-card button {
+
+    padding: 10px;
+
+    background-color: #d6336c;
+
+    color: white;
+
+    border: none;
+
+    border-radius: 5px;
+
+    cursor: pointer;
+
+}
+
+
+.add-table-card button:hover {
+
+    background-color: #b82c5b;
+
+}
+
+.admin-actions{
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    margin-top: 25px;
+}
+
+/*----------------*/
