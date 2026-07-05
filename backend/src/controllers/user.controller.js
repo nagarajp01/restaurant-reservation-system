@@ -76,6 +76,7 @@ const loginUser = asyncHandler(async (req, res) => {
         secure: false,
         sameSite:"none"
     };
+    console.log("COOKIE OPTIONS",options)
     return res
         .status(200)
         .cookie("accessToken", accessToken, options)
